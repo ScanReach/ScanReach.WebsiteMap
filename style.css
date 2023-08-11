@@ -1,0 +1,133 @@
+@font-face {
+  font-family: CenturyGothic;
+  src: url(CenturyGothic.ttf);
+}
+body {
+  font-family: CenturyGothic, sans-serif;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: #f4fcfb;
+}
+
+/* Sales partners popup styling */
+.mapboxgl-popup-close-button {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+  display: flex;
+  flex-direction: row;
+  font-family: CenturyGothic, sans-serif;
+  padding: 5px;
+  width: 250px;
+  border: 1px solid #28d8c3;
+}
+
+.popup-sales-partners {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.mapboxgl-popup-content-wrapper {
+  padding: 1%;
+}
+
+.partner-img {
+  min-width: 100px;
+  max-width: 200px;
+  max-height: 70px;
+  object-fit: contain;
+  border-right: 1px solid #28d8c3;
+}
+
+.partner-name {
+  margin: 5px 0px 10px 0px;
+  padding: 0;
+  font-size: 1.2rem;
+  font-family: CenturyGothic, sans-serif;
+}
+
+.popup-sales-partners {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Changing the default marker styling */
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+  border-bottom-color: transparent;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+  border-top-color: transparent;
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  border-right-color: #28d8c3;
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  border-left-color: #28d8c3;
+}
+
+/* Representative popup styling*/
+.popup-representatives {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  z-index: 1;
+  width: 30%;
+}
+
+.representatives-container {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px;
+  max-height: 100px;
+  border: 2px solid #28d8c3;
+  font-size: 14px;
+  background-color: #f4fcfb;
+  border-radius: 3px;
+}
+
+.representative-info {
+  margin-left: 10px;
+  color: #121621;
+}
+.representative-name {
+  margin: 5px 0px 10px 0px;
+  padding: 0;
+  font-size: 1.5rem;
+  font-family: CenturyGothic, sans-serif;
+}
+
+.reprentative-contact-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.reprentative-contact-container a {
+  text-decoration: none;
+  color: #28d8c3;
+  cursor: pointer;
+}
+
+.representative-email,
+.representative-phone {
+  margin: 0px;
+  padding: 5px 5px 5px 0px;
+  font-family: CenturyGothic, sans-serif;
+}
+
+.representative-img {
+  max-width: 100px;
+  max-height: 100px;
+  overflow: hidden;
+  border-right: 1px solid #28d8c3;
+}

@@ -8,140 +8,47 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./style.css" />
     <title>Website map</title>
   </head>
   <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="map" style="width: 100%; height: 70vh"></div>
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1Ijoic2NhbnJlYWNoIiwiYSI6ImNrbGdqbHowZTF0cjQyd3M0OGN5MTY3NzEifQ.53kfrGXRQi_ZatxYMTwtNw";
-      var map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/scanreach/cklgndh0z5f1q17t5y6ufehkd",
-        center: [5.1243, 60.3571],
-        zoom: 1.55,
-      });
-      let hoveredPolygonId = null;
-      map.on("load", () => {
-        // Add a data source containing GeoJSON data.
-        map.addSource("Denmark", {
-          type: "geojson",
-          data: {
-            type: "Feature",
-            promoteId: "denmark",
-            properties: {
-              name: "Denmark",
-            },
-            geometry: {
-              type: "Polygon",
-              // These coordinates outline Denmark.
-              coordinates: [
-                [
-                  [9.950544287956944, 54.807475733467925],
-                  [10.37188976507818, 54.766051187447005],
-                  [11.162296096683747, 54.63830019906766],
-                  [11.694567896314084, 54.39773022344369],
-                  [12.38287851974414, 54.4792002897255],
-                  [12.83009451145179, 54.86015017628091],
-                  [12.575770065216886, 55.24082925319365],
-                  [12.775036454421468, 55.50306053951218],
-                  [12.711694457260649, 55.95585020079358],
-                  [12.461838513449266, 56.185565138965245],
-                  [11.016986415720055, 56.03194872427687],
-                  [11.726702311818656, 56.75984146780647],
-                  [11.019638921748566, 57.41871835403168],
-                  [10.755720990492307, 58.0026407336986],
-                  [9.325439492846726, 57.35857166279817],
-                  [8.74582549669924, 57.438229191271915],
-                  [8.005602459400563, 56.74640892171314],
-                  [7.934380725651351, 55.62000603534983],
-                  [8.459230643820433, 54.89665670098066],
-                  [9.885805091002226, 54.82745875223097],
-                  [9.950544287956944, 54.807475733467925],
-                ],
-              ],
-            },
-          },
-        });
-        // Add a black an colored outline around the polygon.
-        map.addLayer({
-          id: "denmark-outline",
-          type: "line",
-          source: "Denmark",
-          id: "denmark-outline",
-          layout: {},
-          paint: {
-            "line-color": "#B5D4D2",
-            "line-width": 1,
-          },
-        });
-        map.addLayer({
-          id: "denmark-fills",
-          type: "fill",
-          source: "Denmark",
-          layout: {},
-          paint: {
-            "fill-color": "#627BC1",
-            "fill-opacity": [
-              "case",
-              ["boolean", ["feature-state", "hover"], false],
-              1,
-              0.5,
-            ],
-          },
-        });
-        // When the user moves their mouse over the state-fill layer, we'll update the
-        // feature state for the feature under the mouse.
-        map.on("mousemove", "denmark-fills", (e) => {
-          if (e.features.length > 0) {
-            if (hoveredPolygonId !== null) {
-              map.setFeatureState(
-                { source: "Denmark", id: hoveredPolygonId },
-                { hover: false }
-              );
-            }
-            hoveredPolygonId = e.features[0].id;
-            console.log(e.features[0]);
-            map.setFeatureState(
-              { source: "Denmark", id: hoveredPolygonId },
-              { hover: true }
-            );
-          }
-        });
+    <h1>Sales partners</h1>
 
-        // When the mouse leaves the state-fill layer, update the feature state of the
-        // previously hovered feature.
-        map.on("mouseleave", "denmark-fills", () => {
-          if (hoveredPolygonId !== null) {
-            map.setFeatureState(
-              { source: "Denmark", id: hoveredPolygonId },
-              { hover: false }
-            );
-          }
-          hoveredPolygonId = null;
-        });
+    <div id="map" style="width: 100%; height: 70vh">
+      <!--       <div class="popup-representatives">
+        <div class="representatives-container">
+          <img id="representative-img" class="representative-img" alt="representative-img" src="./images/representatives/Ørjan_Mediumres.png"/>
+          <div class='representative-info'>
+            <h3 class="representative-name" id="representative-name">Ørjan Berger</h3>
+            <div class="reprentative-contact-container">
+              <i class="email"></i>
+              <a href="mailto: ob@scanreach.com" class="representative-email">ob@scanreach.com</a>
+            </div>
+            <div class="reprentative-contact-container">
+              <i class="phone"></i>
+              <a href="tel:+4748254497" class="representative-phone">+4748254497</a>
+            </div>
+          </div>
+        </div>
+        <div class="representatives-container">
+          <img id="representative-img" class="representative-img" alt="representative-img" src="./images/representatives/Ørjan_Mediumres.png"/>
+          <div class='representative-info'>
+            <h3 class="representative-name" id="representative-name">Ørjan Berger</h3>
+            <div class="reprentative-contact-container">
+              <i class="email"></i>
+              <a href="mailto: ob@scanreach.com" class="representative-email">ob@scanreach.com</a>
+            </div>
+            <div class="reprentative-contact-container">
+              <i class="phone"></i>
+              <a href="tel:+4748254497" class="representative-phone">+4748254497</a>
+            </div>
+          </div>
+        </div> -->
+    </div>
 
-        map.on("click", (event) => {
-          // If the user clicked on one of the markers, get its information.
-          const features = map.queryRenderedFeatures(event.point, {
-            layers: ["denmark-fills"],
-          });
-          if (!features.length) {
-            return;
-          }
-          const feature = features[0];
-
-          // Add a popup to the map to display the information.
-          const popup = new mapboxgl.Popup({ offset: [-100, -100] })
-            .setLngLat(feature.geometry.coordinates[0][0]) // Should not be a lat long value but a point on the map. Best case the whole fill of the polygon
-            .setHTML(
-              `<h3>${feature.properties.name}</h3><p>${feature.properties.name}</p>`
-            )
-            .addTo(map);
-        });
-      });
-    </script>
+    <script src="./js/salesPartners/querin.js"></script>
+    <script src="./js/salesPartners/bocveraMaritime.js"></script>
   </body>
 </html>
