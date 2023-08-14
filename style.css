@@ -36,7 +36,7 @@ body {
 
 .partner-img {
   min-width: 100px;
-  max-width: 200px;
+  max-width: 150px;
   max-height: 70px;
   object-fit: contain;
   border-right: 1px solid #28d8c3;
