@@ -36,7 +36,6 @@ async function renderSalesPartners(partners, mapboxMap) {
 
 let countryId = null;
 let popupClicked = false;
-const querinPos = salesPartners[0].lngLat;
 map.on("load", async () => {
   await renderSalesPartners(salesPartners, map);
   // Added a fill layer so the user can click anywhere on the polygon to trigger the popup.
