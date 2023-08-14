@@ -55,6 +55,17 @@ body {
   align-items: center;
 }
 
+/* ScanReach marker */
+.scanReachMarker {
+  width: 10px;
+  height: 10px;
+  border: 5px solid #28d8c300;
+  outline-offset: -5px;
+  outline: 4px solid #20343c;
+  border-radius: 50%;
+  background-color: #28d8c3;
+}
+
 /* Changing the default marker styling */
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
