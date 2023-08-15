@@ -125,10 +125,6 @@ map.on("load", async () => {
         );
       }
     }
-    if (!popupClicked) {
-      partnerPopup.remove(); // Remove the popup
-      markerInstance.remove(); // Remove the marker from the map
-    }
   });
 
   // When the mouse leaves the state-fill layer, update the feature state of the
