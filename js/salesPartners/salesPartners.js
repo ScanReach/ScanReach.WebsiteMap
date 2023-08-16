@@ -11,6 +11,7 @@ var map = new mapboxgl.Map({
  *
  * @param {SalesPartner} partners
  */
+// gets the geoJson from the partners and combines them into one geoJson
 async function renderSalesPartners(partners, mapboxMap) {
   let combinedGeoJson = {
     type: "FeatureCollection",
@@ -36,6 +37,41 @@ async function renderSalesPartners(partners, mapboxMap) {
 
 let countryId = null;
 let popupClicked = false;
+
+function renderSalesPartnerList(salesPartners) {
+  let content = "";
+
+  salesPartners.forEach((partner) => {
+    content += `
+    <a href="${partner.link}">
+      <div class="salespartner-img-container">
+        <img id="salespartner-img" class="salespartner-img" alt="${partner.name}" src="${partner.img}"/>
+      </div>
+    </a>  
+  `;
+  });
+  return content;
+}
+
+let partnerListContainer = document.getElementById("partner-list-container");
+partnerListContainer.innerHTML = renderSalesPartnerList(salesPartners);
+
+const listRadio = document.getElementById("select-list-view");
+const mapRadio = document.getElementById("select-map-view");
+console.log(listRadio);
+listRadio.addEventListener("change", () => {
+  if (listRadio.checked) {
+    partnerListContainer.style.display = "flex";
+  }
+});
+
+mapRadio.addEventListener("change", () => {
+  if (mapRadio.checked) {
+    partnerListContainer.style.display = "none";
+  }
+});
+
+// load layers and render sales partners
 map.on("load", async () => {
   await renderSalesPartners(salesPartners, map);
   // Added a fill layer so the user can click anywhere on the polygon to trigger the popup.
@@ -65,6 +101,7 @@ map.on("load", async () => {
       ],
     },
   });
+  // Add a ScanReach Mint colour around the polygon. Opacity is set to 0.5 until click
   map.addLayer({
     id: "country-click-outline",
     type: "line",
@@ -111,10 +148,12 @@ map.on("load", async () => {
             .setLngLat(hoveredPartner.lngLat)
             .setHTML(
               `
-          <div class='popup-sales-partners'>
-            <img class="partner-img" id="partner-img" src="${hoveredPartner.img}"></img>
-            <h3 class="partner-name" id="partner-name">${hoveredPartner.name}</h3>
-          </div>
+          <a href="${hoveredPartner.link}">
+            <div class='popup-sales-partners'>
+              <img class="partner-img" id="partner-img" alt="${hoveredPartner.name}" src="${hoveredPartner.img}"></img>
+              <h3 class="partner-name" id="partner-name">${hoveredPartner.name}</h3>
+            </div>
+          </a>
           `
             )
             .addTo(map); // Add the popup to the map
@@ -163,10 +202,12 @@ map.on("load", async () => {
             .setLngLat(clickedPartner.lngLat)
             .setHTML(
               `
-          <div class='popup-sales-partners'>
-            <img class="partner-img" id="partner-img" src="${clickedPartner.img}"></img>
-            <h3 class="partner-name" id="partner-name">${clickedPartner.name}</h3>
-          </div>
+          <a href="${clickedPartner.link}">
+            <div class='popup-sales-partners'>
+              <img class="partner-img" id="partner-img" src="${clickedPartner.img}"></img>
+              <h3 class="partner-name" id="partner-name">${clickedPartner.name}</h3>
+            </div>
+          </a>
           `
             )
             .addTo(map); // Add the popup to the map
