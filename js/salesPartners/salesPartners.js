@@ -38,6 +38,7 @@ async function renderSalesPartners(partners, mapboxMap) {
 let countryId = null;
 let popupClicked = false;
 
+// Render the partners on the map for the list view on mobile
 function renderSalesPartnerList(salesPartners) {
   let content = "";
 
@@ -45,7 +46,7 @@ function renderSalesPartnerList(salesPartners) {
     content += `
     <a href="${partner.link}">
       <div class="salespartner-img-container">
-        <img id="salespartner-img" class="salespartner-img" alt="${partner.name}" src="${partner.img}"/>
+        <img id="salespartner-img" class="salespartner-img" alt="${partner.description}" src="${partner.img}"/>
       </div>
     </a>  
   `;
@@ -58,7 +59,7 @@ partnerListContainer.innerHTML = renderSalesPartnerList(salesPartners);
 
 const listRadio = document.getElementById("select-list-view");
 const mapRadio = document.getElementById("select-map-view");
-console.log(listRadio);
+
 listRadio.addEventListener("change", () => {
   if (listRadio.checked) {
     partnerListContainer.style.display = "flex";
@@ -150,7 +151,7 @@ map.on("load", async () => {
               `
           <a href="${hoveredPartner.link}">
             <div class='popup-sales-partners'>
-              <img class="partner-img" id="partner-img" alt="${hoveredPartner.name}" src="${hoveredPartner.img}"></img>
+              <img class="partner-img" id="partner-img" alt="${hoveredPartner.description}" src="${hoveredPartner.img}"></img>
               <h3 class="partner-name" id="partner-name">${hoveredPartner.name}</h3>
             </div>
           </a>
@@ -204,7 +205,8 @@ map.on("load", async () => {
               `
           <a href="${clickedPartner.link}">
             <div class='popup-sales-partners'>
-              <img class="partner-img" id="partner-img" src="${clickedPartner.img}"></img>
+              <img class="partner-img" id="partner-img" alt="${clickedPartner.description}"
+              src="${clickedPartner.img}"></img>
               <h3 class="partner-name" id="partner-name">${clickedPartner.name}</h3>
             </div>
           </a>

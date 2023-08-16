@@ -95,7 +95,8 @@ a {
 }
 
 /* Representative styling*/
-.partner-list-container {
+.partner-list-container,
+.representatives-list-container {
   position: absolute;
   display: none;
   flex-direction: column;
