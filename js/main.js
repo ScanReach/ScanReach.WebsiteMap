@@ -31,9 +31,11 @@ listRadio.addEventListener("change", () => {
   if (listRadio.checked) {
     repListContainer.style.display = "flex";
     mapContainer.style.display = "none";
-    // TODO: Fix rendering of the lists based on query param
-    repListContainer.innerHTML = renderRepresentativesList(representatives);
-    repListContainer.innerHTML = renderSalesPartnerList(salesPartners);
+    if (getQueryParamData() == "salesPartners") {
+      repListContainer.innerHTML = renderSalesPartnerList(salesPartners);
+    } else {
+      repListContainer.innerHTML = renderRepresentativesList(representatives);
+    }
   }
 });
 
@@ -105,6 +107,9 @@ map.on("load", async () => {
             { hover: false }
           );
         }
+
+        // FIXME: Render different popup based on output from getQueryParamData()
+
         const hoveredRep = representatives.find((rep) => rep.id === countryId);
         if (hoveredRep) {
           repListPopupContainer.style.display = "flex";
@@ -211,8 +216,7 @@ map.on("load", async () => {
 
 async function getQueryParamAndRender() {
   const defaultToRender = "representatives";
-  const urlParams = new URLSearchParams(window.location.search);
-  const dataToRender = urlParams.get("data");
+  const dataToRender = getQueryParamData();
   if (!dataToRender) {
     window.location.search = `?data=${defaultToRender}`;
     dataToRender = defaultToRender;
@@ -228,6 +232,15 @@ async function getQueryParamAndRender() {
       await renderRepresentativePolygons(representatives, map);
       break;
   }
+}
+
+/**
+ *
+ * @returns {"salesPartners" | "representatives""}
+ */
+function getQueryParamData() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("data");
 }
 
 /**
@@ -274,7 +287,7 @@ function renderRepresentativesList(representatives) {
 
   representatives.forEach((rep) => {
     content += `
-      <h3 class="representative-area" id="representative-area">${rep.area}</h3>
+      <h3 class="representative-area">${rep.area}</h3>
       <div class="representatives-container">
       <img id="representative-img" class="representative-img" alt="${rep.description}" src="${rep.img}"/>
         <div class='representative-info'>
@@ -304,11 +317,12 @@ function renderSalesPartnerList(salesPartners) {
 
   salesPartners.forEach((partner) => {
     content += `
-      <a href="${partner.link}">
-        <div class="salespartner-img-container">
-          <img id="salespartner-img" class="salespartner-img" alt="${partner.description}" src="${partner.img}"/>
-        </div>
-      </a>  
+    <h3 class="representative-area" >${partner.area}</h3>
+    <a href="${partner.link}">
+    <div class="salespartner-img-container">
+        <img id="salespartner-img" class="salespartner-img" alt="${partner.description}" src="${partner.img}"/>
+    </div>
+    </a>  
     `;
   });
   return content;
