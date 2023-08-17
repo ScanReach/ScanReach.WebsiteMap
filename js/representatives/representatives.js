@@ -12,7 +12,7 @@ var map = new mapboxgl.Map({
  * @param {Representatives} reps
  */
 // gets the geoJson from the reps and combines them into one geoJson
-async function renderRepresentatives(reps, mapboxMap) {
+async function renderRepresentativePolygons(reps, mapboxMap) {
   let combinedGeoJson = {
     type: "FeatureCollection",
     features: [],
@@ -89,7 +89,7 @@ mapRadio.addEventListener("change", () => {
 
 // load layers and render sales reps
 map.on("load", async () => {
-  await renderRepresentatives(representatives, map);
+  await renderRepresentativePolygons(representatives, map);
   // Added a fill layer so the user can click anywhere on the polygon to trigger the popup.
   map.addLayer({
     id: "country-fills",

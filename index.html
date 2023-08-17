@@ -35,11 +35,18 @@
       <label for="select-list-view" class="select-view-label">List</label>
     </div>
 
-    <div id="map" class="map">
-      <div class="partner-list-container" id="partner-list-container"></div>
+    <div class="map-area">
+      <!-- TODO: Remove class and only keep id as there is only one item called this -->
+      <div
+        class="representatives-popup-container"
+        id="representatives-popup-container"
+      ></div>
+      <div id="representatives-list-container"></div>
+      <div id="map" class="map"></div>
     </div>
 
     <script src="./js/partnerList.js"></script>
-    <script src="./js/salesPartners/salesPartners.js"></script>
+    <script src="./js/repList.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
