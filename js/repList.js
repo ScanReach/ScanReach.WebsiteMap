@@ -76,7 +76,7 @@ const representatives = [
 ];
 
 /**
- * @typedef {Object} representative
+ * @typedef {Object} Representative
  * @property {number} id - The id of the representative.
  * @property {string} name - The name of the representative.
  * @property {string} area - The area of the representative.

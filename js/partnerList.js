@@ -31,7 +31,7 @@ const salesPartners = [
     img: "../../images/salesPartners/dSolutionLogo.png",
     lngLat: [-3.70379, 40.41678], // Not the correct coordinates - The location is in panama. Which will only confuse the user
     geoJson: "../../borders/spainSimplified.geojson",
-    link: "https://www.scanreach.no/", // Not the correct link
+    link: null, // Not the correct link
     description:
       "DSolution is a Spanish company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Spain.",
   },
@@ -42,7 +42,7 @@ const salesPartners = [
     img: "../../images/salesPartners/jnkLogo.png",
     lngLat: [106.89373, -6.15456],
     geoJson: "../../borders/indonesiaSimplified.geojson",
-    link: "https://www.scanreach.no/", // Not the correct link
+    link: null, // Not the correct link
     description:
       "JNK is an Indonesian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Indonesia.",
   },
@@ -100,6 +100,6 @@ const salesPartners = [
  * @property {string} img - The path to the image of the sales partner.
  * @property {number[]} lngLat - The longitude and latitude of the sales partner.
  * @property {string} geoJson - The path to the geoJson file of the sales partner.
- * @property {string} link - The link to the sales partner's website.
+ * @property {string | undefined | null} link - The link to the sales partner's website.
  * @property {string} description - The description of the sales partner.
  */

@@ -44,18 +44,18 @@ function renderRepresentativesList(representatives) {
 
   representatives.forEach((rep) => {
     content += `
-    <h3 class="representative-area" id="representative-area">${rep.area}</h3>
+    <h3 class="resposibility-area">${rep.area}</h3>
     <div class="representatives-container">
-    <img id="representative-img" class="representative-img" alt="${rep.description}" src="${rep.img}"/>
-      <div class='representative-info'>
-        <h3 class="representative-name" id="representative-name">${rep.name}</h3>
-        <div class="reprentative-contact-container">
+    <img class="popup-img" alt="${rep.description}" src="${rep.img}"/>
+      <div class="popup-info">
+        <h3 class="area-owner">${rep.name}</h3>
+        <div class="popup-contact-container">
           <i class="email"></i>
-          <a href="mailto: ${rep.email}" class="representative-email">${rep.email}</a>
+          <a href="mailto: ${rep.email}" class="popup-contact-info">${rep.email}</a>
         </div>
-        <div class="reprentative-contact-container">
+        <div class="popup-contact-container">
           <i class="phone"></i>
-          <a href="tel:${rep.phone}" class="representative-phone">${rep.phone}</a>
+          <a href="tel:${rep.phone}" class="popup-contact-info">${rep.phone}</a>
         </div>
       </div>
   </div>
@@ -64,9 +64,8 @@ function renderRepresentativesList(representatives) {
   return content;
 }
 
-let repListContainer = document.getElementById(
-  "representatives-list-container"
-);
+let repListContainer = document.getElementById("list-container");
+let mapContainer = document.getElementById("map");
 repListContainer.innerHTML = renderRepresentativesList(representatives);
 
 let repListPopupContainer = document.getElementById(
@@ -78,12 +77,14 @@ const mapRadio = document.getElementById("select-map-view");
 listRadio.addEventListener("change", () => {
   if (listRadio.checked) {
     repListContainer.style.display = "flex";
+    mapContainer.style.display = "none";
   }
 });
 
 mapRadio.addEventListener("change", () => {
   if (mapRadio.checked) {
     repListContainer.style.display = "none";
+    mapContainer.style.display = "block";
   }
 });
 
@@ -153,16 +154,16 @@ map.on("load", async () => {
           repListPopupContainer.style.display = "flex";
           repListPopupContainer.innerHTML = `
           <div class="representatives-container">
-          <img id="representative-img" class="representative-img" alt="${hoveredRep.description}" src="${hoveredRep.img}"/>
-            <div class='representative-info'>
-              <h3 class="representative-name" id="representative-name">${hoveredRep.name}</h3>
-              <div class="reprentative-contact-container">
+          <img class="popup-img" alt="${hoveredRep.description}" src="${hoveredRep.img}"/>
+            <div class='popup-info'>
+              <h3 class="area-owner">${hoveredRep.name}</h3>
+              <div class="popup-contact-container">
                 <i class="email"></i>
-                <a href="mailto: ${hoveredRep.email}" class="representative-email">${hoveredRep.email}</a>
+                <a href="mailto: ${hoveredRep.email}" class="popup-contact-info">${hoveredRep.email}</a>
               </div>
-              <div class="reprentative-contact-container">
+              <div class="popup-contact-container">
                 <i class="phone"></i>
-                <a href="tel:${hoveredRep.phone}" class="representative-phone">${hoveredRep.phone}</a>
+                <a href="tel:${hoveredRep.phone}" class="popup-contact-info">${hoveredRep.phone}</a>
               </div>
             </div>
         </div>
@@ -209,16 +210,16 @@ map.on("load", async () => {
           repListPopupContainer.style.display = "flex";
           repListPopupContainer.innerHTML = `
           <div class="representatives-container">
-          <img id="representative-img" class="representative-img" alt="${clickedRep.description}" src="${clickedRep.img}"/>
-            <div class='representative-info'>
-              <h3 class="representative-name" id="representative-name">${clickedRep.name}</h3>
-              <div class="reprentative-contact-container">
+          <img class="popup-img" alt="${clickedRep.description}" src="${clickedRep.img}"/>
+            <div class='popup-info'>
+              <h3 class="area-owner">${clickedRep.name}</h3>
+              <div class="popup-contact-container">
                 <i class="email"></i>
-                <a href="mailto: ${clickedRep.email}" class="representative-email">${clickedRep.email}</a>
+                <a href="mailto: ${clickedRep.email}" class="popup-contact-info">${clickedRep.email}</a>
               </div>
-              <div class="reprentative-contact-container">
+              <div class="popup-contact-container">
                 <i class="phone"></i>
-                <a href="tel:${clickedRep.phone}" class="representative-phone">${clickedRep.phone}</a>
+                <a href="tel:${clickedRep.phone}" class="popup-contact-info">${clickedRep.phone}</a>
               </div>
             </div>
         </div>
@@ -237,17 +238,19 @@ map.on("load", async () => {
       layers: ["country-fills"],
     });
 
-    // if no features from "country-fills" are clicked, remove popup and marker
+    // if no features from "country-fills" are clicked, remove popup
     if (!features.length) {
       repListPopupContainer.style.display = "none";
       return;
     }
     if (countryId !== null) {
+      console.log("Resetting the click state for country", countryId);
       map.setFeatureState(
         { source: "country", id: countryId },
         { click: false }
       );
       countryId = null;
     }
+    return;
   });
 });

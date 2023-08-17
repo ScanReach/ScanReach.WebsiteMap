@@ -44,6 +44,7 @@ function renderSalesPartnerList(salesPartners) {
 
   salesPartners.forEach((partner) => {
     content += `
+    <h3 class="resposibility-area">${partner.area}</h3>
     <a href="${partner.link}">
       <div class="salespartner-img-container">
         <img id="salespartner-img" class="salespartner-img" alt="${partner.description}" src="${partner.img}"/>
@@ -54,7 +55,8 @@ function renderSalesPartnerList(salesPartners) {
   return content;
 }
 
-let partnerListContainer = document.getElementById("partner-list-container");
+let partnerListContainer = document.getElementById("list-container");
+let mapContainer = document.getElementById("map");
 partnerListContainer.innerHTML = renderSalesPartnerList(salesPartners);
 
 const listRadio = document.getElementById("select-list-view");
@@ -63,12 +65,14 @@ const mapRadio = document.getElementById("select-map-view");
 listRadio.addEventListener("change", () => {
   if (listRadio.checked) {
     partnerListContainer.style.display = "flex";
+    mapContainer.style.display = "none";
   }
 });
 
 mapRadio.addEventListener("change", () => {
   if (mapRadio.checked) {
     partnerListContainer.style.display = "none";
+    mapContainer.style.display = "block";
   }
 });
 
@@ -151,8 +155,10 @@ map.on("load", async () => {
               `
           <a href="${hoveredPartner.link}">
             <div class='popup-sales-partners'>
-              <img class="partner-img" id="partner-img" alt="${hoveredPartner.description}" src="${hoveredPartner.img}"></img>
-              <h3 class="partner-name" id="partner-name">${hoveredPartner.name}</h3>
+              <img class="popup-img" alt="${hoveredPartner.description}" src="${hoveredPartner.img}"></img>
+              <div class="popup-info">
+                <h3 class="area-owner">${hoveredPartner.name}</h3>
+              </div>
             </div>
           </a>
           `
@@ -205,9 +211,11 @@ map.on("load", async () => {
               `
           <a href="${clickedPartner.link}">
             <div class='popup-sales-partners'>
-              <img class="partner-img" id="partner-img" alt="${clickedPartner.description}"
+              <img class="popup-img" alt="${clickedPartner.description}"
               src="${clickedPartner.img}"></img>
-              <h3 class="partner-name" id="partner-name">${clickedPartner.name}</h3>
+              <div class="popup-info">
+                <h3 class="area-owner">${clickedPartner.name}</h3>
+              </div>
             </div>
           </a>
           `

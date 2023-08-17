@@ -1,3 +1,4 @@
+/* General styling */
 @font-face {
   font-family: CenturyGothic;
   src: url(CenturyGothic.ttf);
@@ -21,7 +22,7 @@ a {
   border-radius: 3px;
 }
 
-/* Sales partners popup styling */
+/* Specific salesPartners popup styling */
 .mapboxgl-popup-close-button {
   display: none;
 }
@@ -29,41 +30,27 @@ a {
 .mapboxgl-popup-content {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   font-family: CenturyGothic, sans-serif;
   padding: 5px;
-  width: 250px;
-  border: 1px solid #28d8c3;
-}
-
-.popup-sales-partners {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-}
-
-.mapboxgl-popup-content-wrapper {
-  padding: 1%;
-}
-
-.partner-img {
-  min-width: 100px;
-  max-width: 150px;
-  max-height: 70px;
-  object-fit: contain;
-  border-right: 1px solid #28d8c3;
-}
-
-.partner-name {
-  margin: 5px 0px 10px 0px;
-  padding: 0;
-  font-size: 1.2rem;
-  font-family: CenturyGothic, sans-serif;
+  height: 100px;
+  width: 300px;
+  border: 2px solid #28d8c3;
 }
 
 .popup-sales-partners {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 5px;
+}
+
+.popup-img {
+  min-width: 100px;
+  max-width: 150px;
+  max-height: 100px;
+  object-fit: contain;
 }
 
 /* ScanReach marker */
@@ -89,15 +76,14 @@ a {
   border-top-color: transparent;
 }
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-  border-right-color: #28d8c3;
+  border-right-color: transparent;
 }
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-  border-left-color: #28d8c3;
+  border-left-color: transparent;
 }
 
-/* Representative and partner container list styling*/
-.partner-list-container,
-.representatives-list-container {
+/* Representative and SalesPartner list and popup styling*/
+.list-container {
   position: absolute;
   display: none;
   flex-direction: column;
@@ -112,13 +98,74 @@ a {
   overflow: scroll;
 }
 
-.partner-list-container a {
+.list-container a {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
+.popup-info {
+  margin-left: 10px;
+  color: #121621;
+  padding-left: 10px;
+  border-left: 1px solid #28d8c3;
+}
+
+.resposibility-area {
+  font-family: CenturyGothic, sans-serif;
+  font-size: 1.5rem;
+  color: #28d8c3;
+}
+
+.area-owner {
+  margin: 5px 0px 10px 0px;
+  padding: 0;
+  font-size: 1.5rem;
+  font-family: CenturyGothic, sans-serif;
+}
+
+.popup-contact-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.popup-contact-container a {
+  text-decoration: none;
+  color: #28d8c3;
+  cursor: pointer;
+}
+
+.popup-contact-info {
+  margin: 0px;
+  padding: 5px 5px 5px 0px;
+  font-family: CenturyGothic, sans-serif;
+}
+
+/* Specific Salespartners list styling */
+.salespartner-img-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 350px;
+  height: 80px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px;
+  border: 2px solid #28d8c3;
+  background-color: #f4fcfb;
+  border-radius: 3px;
+}
+
+.salespartner-img {
+  max-width: 90%;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+/* Specific repreresentative list and popup styling */
 .representatives-popup-container {
   position: absolute;
   display: none;
@@ -145,72 +192,6 @@ a {
   background-color: #f4fcfb;
   border-radius: 3px;
   margin-bottom: 10px;
-}
-
-.representative-info {
-  margin-left: 10px;
-  color: #121621;
-  padding-left: 10px;
-  border-left: 1px solid #28d8c3;
-}
-
-.representative-area {
-  font-family: CenturyGothic, sans-serif;
-  font-size: 1.5rem;
-  color: #28d8c3;
-}
-.representative-name {
-  margin: 5px 0px 10px 0px;
-  padding: 0;
-  font-size: 1.5rem;
-  font-family: CenturyGothic, sans-serif;
-}
-
-.reprentative-contact-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.reprentative-contact-container a {
-  text-decoration: none;
-  color: #28d8c3;
-  cursor: pointer;
-}
-
-.representative-email,
-.representative-phone {
-  margin: 0px;
-  padding: 5px 5px 5px 0px;
-  font-family: CenturyGothic, sans-serif;
-}
-
-.representative-img {
-  max-width: 100px;
-  max-height: 100px;
-  overflow: hidden;
-}
-
-/* Salespartners list styling */
-.salespartner-img-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 350px;
-  height: 80px;
-  margin-top: 5px;
-  margin-right: 5px;
-  padding: 5px;
-  border: 2px solid #28d8c3;
-  background-color: #f4fcfb;
-  border-radius: 3px;
-}
-
-.salespartner-img {
-  max-width: 90%;
-  max-height: 80px;
-  overflow: hidden;
 }
 
 /* Select view styling */
@@ -258,7 +239,7 @@ input[type="radio"]:checked + label {
   .radio-button-container {
     display: none;
   }
-  .partner-list-container {
+  .list-container {
     display: none;
   }
 
