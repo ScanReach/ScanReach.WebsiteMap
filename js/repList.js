@@ -49,14 +49,14 @@ const representatives = [
   },
   {
     id: 5,
-    name: "Sven-Eric-Brooks",
+    name: "Sven-Eric Brooks",
     area: "Africa, ROW",
     img: "../../images/representatives/Sven-Eric-Brooks.png",
     lngLat: [5.1215, 60.36549], // remove when representative.js file is modified
-    geoJson: "../../borders/africaRowSimplified.geojson",
+    geoJson: "../../borders/africaAndRowSimplified.geojson",
     phone: "+47 900 00 000", // Add correct phone number
     email: "sales@scanreach.com",
-    description: "image of Svenn-Eric-Brooks",
+    description: "image of Sven-Eric-Brooks",
   },
   {
     id: 8,
@@ -64,7 +64,7 @@ const representatives = [
     area: "APAC",
     img: "../../images/representatives/Michael-Hendricks.png",
     lngLat: [5.1215, 60.36549], // remove when representative.js file is modified
-    geoJson: "../../borders/apac.geojson", // Not the coorect file
+    geoJson: "../../borders/APACSimplified.geojson", // Not the coorect file
     phone: "+47 900 00 000", // Add correct phone number
     email: "sales@scanreach.com",
     description: "image of Michael Hendricks",
