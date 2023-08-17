@@ -95,7 +95,7 @@ a {
   border-left-color: #28d8c3;
 }
 
-/* Representative styling*/
+/* Representative and partner container list styling*/
 .partner-list-container,
 .representatives-list-container {
   position: absolute;
@@ -119,23 +119,39 @@ a {
   width: 100%;
 }
 
+.representatives-popup-container {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  right: 0;
+  z-index: 1;
+  max-height: 75vh;
+  border-radius: 3px;
+}
+
 .representatives-container {
   display: flex;
   gap: 5px;
   margin-top: 5px;
   margin-right: 5px;
   padding: 5px;
-  max-width: 300px;
+  width: 90%;
+  max-width: 320px;
   max-height: 120px;
   border: 2px solid #28d8c3;
   font-size: 14px;
   background-color: #f4fcfb;
   border-radius: 3px;
+  margin-bottom: 10px;
 }
 
 .representative-info {
   margin-left: 10px;
   color: #121621;
+  padding-left: 10px;
+  border-left: 1px solid #28d8c3;
 }
 
 .representative-area {
@@ -172,7 +188,6 @@ a {
   max-width: 100px;
   max-height: 100px;
   overflow: hidden;
-  border-right: 1px solid #28d8c3;
 }
 
 /* Salespartners list styling */
@@ -234,18 +249,6 @@ input[type="radio"]:checked + label {
   text-decoration-color: #28d8c3;
 }
 
-.representatives-popup-list-container {
-  position: absolute;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  right: 0;
-  z-index: 1;
-  max-height: 75vh;
-  border-radius: 3px;
-}
-
 @media (min-width: 768px) {
   .map {
     width: 100%;
@@ -262,7 +265,7 @@ input[type="radio"]:checked + label {
   .representatives-container {
     min-width: 350px;
   }
-  .representatives-popup-list-container {
+  .representatives-popup-container {
     align-items: flex-end;
   }
 }

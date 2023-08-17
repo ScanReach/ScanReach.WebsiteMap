@@ -38,7 +38,6 @@ async function renderRepresentatives(reps, mapboxMap) {
 }
 
 let countryId = null;
-let popupClicked = false;
 
 function renderRepresentativesList(representatives) {
   let content = "";
@@ -71,7 +70,7 @@ let repListContainer = document.getElementById(
 repListContainer.innerHTML = renderRepresentativesList(representatives);
 
 let repListPopupContainer = document.getElementById(
-  "representatives-popup-list-container"
+  "representatives-popup-container"
 );
 
 const listRadio = document.getElementById("select-list-view");
@@ -231,13 +230,6 @@ map.on("load", async () => {
         );
       }
     }
-    if (popupClicked && countryId !== null) {
-      map.setFeatureState(
-        { source: "country", id: countryId },
-        { click: false }
-      );
-    }
-    popupClicked = true;
   });
 
   map.on("click", (e) => {
