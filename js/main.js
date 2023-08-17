@@ -19,6 +19,8 @@ let repListPopupContainer = document.getElementById(
 
 /**
  * Automatically change rendered data when the query param changes
+ * The query param we read is `url?data=(representatives|salesPartners)`.
+ * Change this query param to change rendering.
  */
 window.addEventListener("change", async (e) => {
   await getQueryParamAndRender();
@@ -235,7 +237,8 @@ async function getQueryParamAndRender() {
 }
 
 /**
- *
+ * The query param we read is `url?data=(representatives|salesPartners)`.
+ * Change this query param to change rendering.
  * @returns {"salesPartners" | "representatives""}
  */
 function getQueryParamData() {
