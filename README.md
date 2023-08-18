@@ -16,27 +16,35 @@ A user can choose list instead, this is especially useful on screen sizes smalle
 ## Screenshots of how the map and list looks dependant on what query is chosen
 
 Salespartners map on desktop
+
 ![Screenshot of the map showing salespartners polygon, popup and marker on desktop](./salesPartnerMap_desktop.png)
 
 Salespartners map on mobile
+
 ![Screenshot of the map showing salespartners polygon, popup and marker on mobile](./salesPartnerMap_mobile.png)
 
 Salespartners list on desktop
+
 ![Screenshot of the list showing salespartners on desktop](./salesPartnerMap_desktop.png)
 
 Salespartners list on mobile
+
 ![Screenshot of the list showing salespartners on mobile](./salesPartnerMap_mobile.png)
 
 Representative map on desktop
+
 ![Screenshot of the map showing representative polygon highlighted and popup on desktop](./representativesMap_desktop.png)
 
 Representative map on mobile
+
 ![Screenshot of the map showing representative polygon highlighted and popup on mobile](./representativesMap_mobile.png)
 
 Representative list on desktop
+
 ![Screenshot of the list showing representatives on desktop](./representativesList_desktop.png)
 
 Representative list on mobile
+
 ![Screenshot of the list showing representatives on mobile](./representativesList_mobile.png)
 
 ## Image from miro on the plan for the page
