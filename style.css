@@ -29,6 +29,11 @@ a {
   border-radius: 3px;
 }
 
+/* Icon styling */
+.fas {
+  color: #28d8c3;
+}
+
 /* Specific salesPartners popup styling */
 .mapboxgl-popup-close-button {
   display: none;
@@ -132,21 +137,21 @@ a {
   font-family: CenturyGothic, sans-serif;
 }
 
-.popup-contact-container {
+.popup-contact-info {
   display: flex;
   flex-direction: row;
-}
-
-.popup-contact-container a {
+  gap: 8px;
+  align-items: center;
   text-decoration: none;
   color: #28d8c3;
   cursor: pointer;
-}
-
-.popup-contact-info {
   margin: 0px;
   padding: 5px 5px 5px 0px;
   font-family: CenturyGothic, sans-serif;
+}
+
+.popup-contact-info p {
+  margin: 0px;
 }
 
 /* Specific Salespartners list styling */

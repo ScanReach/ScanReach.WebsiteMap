@@ -143,20 +143,24 @@ map.on("load", async () => {
           if (hoveredRep) {
             repListPopupContainer.style.display = "flex";
             repListPopupContainer.innerHTML = `
-                <div class="representatives-container">
-                <img class="popup-img" alt="${hoveredRep.description}" src="${hoveredRep.img}"/>
-                  <div class='popup-info'>
-                    <h3 class="popup-name">${hoveredRep.name}</h3>
-                    <div class="popup-contact-container">
-                      <i class="email"></i>
-                      <a href="mailto: ${hoveredRep.email}" class="popup-contact-info">${hoveredRep.email}</a>
-                    </div>
-                    <div class="popup-contact-container">
-                      <i class="phone"></i>
-                      <a href="tel:${hoveredRep.phone}" class="popup-contact-info">${hoveredRep.phone}</a>
-                    </div>
-                  </div>
+            <div class="representatives-container">
+            <img class="popup-img" alt="${hoveredRep.description}" src="${hoveredRep.img}"/>
+              <div class='popup-info'>
+                <h3 class="popup-name">${hoveredRep.name}</h3>
+                <div class="popup-contact-container">
+                <a href="mailto: ${hoveredRep.email}" class="popup-contact-info">
+                <i class="fas fa-envelope"></i>
+                  <p>${hoveredRep.email}</p>
+                  </a>
+                </div>
+                <div class="popup-contact-container">
+                <a href="tel:${hoveredRep.phone}" class="popup-contact-info">
+                <i class="fas fa-phone-alt"></i>
+                  <p>${hoveredRep.phone}</p>
+                  </a>
+                </div>
               </div>
+          </div>
                 `;
           }
         }
@@ -202,20 +206,20 @@ map.on("load", async () => {
           );
         }
         if (getQueryParamData() == "salespartners") {
-          const hoveredPartner = salesPartners.find(
+          const clickedPartner = salesPartners.find(
             (partner) => partner.id === countryId
           );
-          if (hoveredPartner) {
-            markerInstance.setLngLat(hoveredPartner.lngLat).addTo(map); // Add the marker to the map
+          if (clickedPartner) {
+            markerInstance.setLngLat(clickedPartner.lngLat).addTo(map); // Add the marker to the map
             partnerPopup
-              .setLngLat(hoveredPartner.lngLat)
+              .setLngLat(clickedPartner.lngLat)
               .setHTML(
                 `
-                  <a href="${hoveredPartner.link}">
+                  <a href="${clickedPartner.link}">
                     <div class='popup-sales-partners'>
-                      <img class="popup-img" alt="${hoveredPartner.description}" src="${hoveredPartner.img}"></img>
+                      <img class="popup-img" alt="${clickedPartner.description}" src="${clickedPartner.img}"></img>
                       <div class="popup-info">
-                        <h3 class="area-owner">${hoveredPartner.name}</h3>
+                        <h3 class="area-owner">${clickedPartner.name}</h3>
                       </div>
                     </div>
                   </a>
@@ -224,23 +228,27 @@ map.on("load", async () => {
               .addTo(map); // Add the popup to the map
           }
         } else {
-          const hoveredRep = representatives.find(
+          const clickedRep = representatives.find(
             (rep) => rep.id === countryId
           );
-          if (hoveredRep) {
+          if (clickedRep) {
             repListPopupContainer.style.display = "flex";
             repListPopupContainer.innerHTML = `
                   <div class="representatives-container">
-                  <img class="popup-img" alt="${hoveredRep.description}" src="${hoveredRep.img}"/>
+                  <img class="popup-img" alt="${clickedRep.description}" src="${clickedRep.img}"/>
                     <div class='popup-info'>
-                      <h3 class="popup-name">${hoveredRep.name}</h3>
+                      <h3 class="popup-name">${clickedRep.name}</h3>
                       <div class="popup-contact-container">
-                        <i class="email"></i>
-                        <a href="mailto: ${hoveredRep.email}" class="popup-contact-info">${hoveredRep.email}</a>
+                      <a href="mailto: ${clickedRep.email}" class="popup-contact-info">
+                      <i class="fas fa-envelope"></i>
+                        <p>${clickedRep.email}</p>
+                        </a>
                       </div>
                       <div class="popup-contact-container">
-                        <i class="phone"></i>
-                        <a href="tel:${hoveredRep.phone}" class="popup-contact-info">${hoveredRep.phone}</a>
+                      <a href="tel:${clickedRep.phone}" class="popup-contact-info">
+                      <i class="fas fa-phone-alt"></i>
+                        <p>${clickedRep.phone}</p>
+                        </a>
                       </div>
                     </div>
                 </div>
@@ -349,6 +357,7 @@ async function renderRepresentativePolygons(representatives, mapboxMap) {
  * @param {Representative} representatives
  * @returns String ready to be inserted to element.innerHTML
  */
+
 function renderRepresentativesList(representatives) {
   let content = "";
   representatives.forEach((rep) => {
@@ -359,11 +368,11 @@ function renderRepresentativesList(representatives) {
       <div class="popup-info">
         <h3 class="area-owner">${rep.name}</h3>
         <div class="popup-contact-container">
-          <i class="email"></i>
+        <i class="fas fa-envelope"></i>
           <a href="mailto: ${rep.email}" class="popup-contact-info">${rep.email}</a>
         </div>
         <div class="popup-contact-container">
-          <i class="phone"></i>
+        <i class="fas fa-phone-alt"></i>
           <a href="tel:${rep.phone}" class="popup-contact-info">${rep.phone}</a>
         </div>
       </div>
