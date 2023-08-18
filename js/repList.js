@@ -1,5 +1,5 @@
 /**
- * @type {Representatives[]}
+ * @type {Representative[]}
  */
 const representatives = [
   {
@@ -82,7 +82,9 @@ const representatives = [
  * @property {string} area - The area of the representative.
  * @property {string} img - The image of the representative.
  * @property {string} geoJson - The geoJson of the representative.
- * @property {string} phone - The phone number of the representative.
- * @property {string} email - The email of the representative.
+ * @property {number[] | null | undefined} lngLat - The longitude and latitude of the sales partner. Only used by salesPartners
+ * @property {string[] | null | undefined} phone - The phone number of the representative.
+ * @property {string[] | null | undefined} email - The email of the representative.
+ * @property {string | null | undefined} link - The link to the sales partner's website.
  * @property {string} description - The description of the representative.
  */

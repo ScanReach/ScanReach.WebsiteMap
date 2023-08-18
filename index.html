@@ -12,9 +12,7 @@
     <title>Website map</title>
   </head>
   <body>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-    <h1>Sales partners</h1>
+    <h1>Sales partners / Representatives</h1>
     <div class="radio-button-container">
       <input
         type="radio"
@@ -34,10 +32,13 @@
       />
       <label for="select-list-view" class="select-view-label">List</label>
     </div>
-    <div class="list-container" id="list-container"></div>
-    <div id="map" class="map"></div>
-
+    <div class="map-list-container">
+      <div id="representatives-popup-container"></div>
+      <div id="list-container"></div>
+      <div id="map"></div>
+    </div>
     <script src="./js/partnerList.js"></script>
-    <script src="./js/salesPartners/salesPartners.js"></script>
+    <script src="./js/repList.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

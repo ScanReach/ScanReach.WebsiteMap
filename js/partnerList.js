@@ -1,5 +1,9 @@
 /**
- * @type {SalesPartner[]}
+ * @typedef {import("./repList").Representative} Representative
+ */
+
+/**
+ * @type {Representative[]}
  */
 const salesPartners = [
   {
@@ -91,15 +95,3 @@ const salesPartners = [
       "Vision Marine Technologies is a Brazilian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Brazil.",
   },
 ];
-
-/**
- * @typedef {Object} SalesPartner
- * @property {number} id - The id of the sales partner.
- * @property {string} name - The name of the sales partner.
- * @property {string} area - The area of the sales partner.
- * @property {string} img - The path to the image of the sales partner.
- * @property {number[]} lngLat - The longitude and latitude of the sales partner.
- * @property {string} geoJson - The path to the geoJson file of the sales partner.
- * @property {string | undefined | null} link - The link to the sales partner's website.
- * @property {string} description - The description of the sales partner.
- */
