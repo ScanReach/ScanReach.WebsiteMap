@@ -31,7 +31,7 @@ listRadio.addEventListener("change", () => {
   if (listRadio.checked) {
     repListContainer.style.display = "flex";
     mapContainer.style.display = "none";
-    if (getQueryParamData() == "salesPartners") {
+    if (getQueryParamData() == "salespartners") {
       repListContainer.innerHTML = renderSalesPartnerList(salesPartners);
     } else {
       repListContainer.innerHTML = renderRepresentativesList(representatives);
@@ -160,7 +160,6 @@ map.on("load", async () => {
                 `;
           }
         }
-
         map.setFeatureState(
           { source: "country", id: countryId },
           { hover: true }
@@ -352,7 +351,6 @@ async function renderRepresentativePolygons(representatives, mapboxMap) {
  */
 function renderRepresentativesList(representatives) {
   let content = "";
-
   representatives.forEach((rep) => {
     content += `
     <h3 class="resposibility-area">${rep.area}</h3>
@@ -382,7 +380,6 @@ function renderRepresentativesList(representatives) {
  */
 function renderSalesPartnerList(salesPartners) {
   let content = "";
-
   salesPartners.forEach((partner) => {
     content += `
     <h3 class="resposibility-area" >${partner.area}</h3>

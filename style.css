@@ -238,9 +238,6 @@ input[type="radio"]:checked + label {
 }
 
 @media (min-width: 768px) {
-  .radio-button-container {
-    display: none;
-  }
   #list-container {
     display: none;
   }
