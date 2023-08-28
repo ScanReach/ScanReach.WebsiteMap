@@ -154,6 +154,14 @@ a {
   margin: 0px;
 }
 
+.popup-contact-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 /* Specific Salespartners list styling */
 .salespartner-img-container {
   display: flex;
