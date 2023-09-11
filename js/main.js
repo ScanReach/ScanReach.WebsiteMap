@@ -217,7 +217,7 @@ map.on("load", async () => {
                 `
                   ${
                     clickedPartner.link
-                      ? '<a href="' + clickedPartner.link + '">'
+                      ? '<a target="_blank" href="' + clickedPartner.link + '">'
                       : ""
                   }
                     <div class='popup-sales-partners'>
@@ -398,7 +398,7 @@ function renderSalesPartnerList(salesPartners) {
   salesPartners.forEach((partner) => {
     content += `
     <h3 class="resposibility-area" >${partner.area}</h3>
-    ${partner.link ? '<a href="' + partner.link + '">' : ""}
+    ${partner.link ? '<a target="_blank" href="' + partner.link + '">' : ""}
     <div class="salespartner-img-container">
         <img id="salespartner-img" class="salespartner-img" alt="${
           partner.description
