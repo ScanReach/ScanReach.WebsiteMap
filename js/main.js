@@ -215,14 +215,20 @@ map.on("load", async () => {
               .setLngLat(clickedPartner.lngLat)
               .setHTML(
                 `
-                  <a href="${clickedPartner.link}">
+                  ${
+                    clickedPartner.link
+                      ? '<a target="_blank" href="' + clickedPartner.link + '">'
+                      : ""
+                  }
                     <div class='popup-sales-partners'>
-                      <img class="popup-img" alt="${clickedPartner.description}" src="${clickedPartner.img}"></img>
+                      <img class="popup-img" alt="${
+                        clickedPartner.description
+                      }" src="${clickedPartner.img}"></img>
                       <div class="popup-info">
                         <h3 class="area-owner">${clickedPartner.name}</h3>
                       </div>
                     </div>
-                  </a>
+                  ${clickedPartner.link ? "</a>" : ""}
                   `
               )
               .addTo(map); // Add the popup to the map
@@ -392,11 +398,13 @@ function renderSalesPartnerList(salesPartners) {
   salesPartners.forEach((partner) => {
     content += `
     <h3 class="resposibility-area" >${partner.area}</h3>
-    <a href="${partner.link}">
+    ${partner.link ? '<a target="_blank" href="' + partner.link + '">' : ""}
     <div class="salespartner-img-container">
-        <img id="salespartner-img" class="salespartner-img" alt="${partner.description}" src="${partner.img}"/>
+        <img id="salespartner-img" class="salespartner-img" alt="${
+          partner.description
+        }" src="${partner.img}"/>
     </div>
-    </a>  
+    ${partner.link ? "</a>" : ""}
     `;
   });
   return content;
