@@ -300,15 +300,12 @@ async function getQueryParamAndRender() {
     window.location.search = `?data=${defaultToRender}`;
     dataToRender = defaultToRender;
   }
-  console.debug(dataToRender);
   switch (dataToRender.toLowerCase()) {
     case "salespartners":
-      console.debug("Rendering salespartners");
       await renderRepresentativePolygons(salesPartners, map);
       break;
     case "representatives":
     default:
-      console.debug("Rendering representatives");
       await renderRepresentativePolygons(representatives, map);
       break;
   }
