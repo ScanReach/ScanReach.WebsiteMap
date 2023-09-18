@@ -15,7 +15,7 @@ const salesPartners = [
     geoJson: "../../borders/mexicoSimplified.geojson",
     link: "https://bocvera.com/",
     description:
-      "Bocvera Maritime S.A. de C.V. is a Mexican company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Mexico.",
+      "Bocvera Maritime SA de CV is a Maritime Service Provider, founded in 2012, located in Veracruz, Mexico",
   },
   {
     id: 2,
@@ -26,18 +26,18 @@ const salesPartners = [
     geoJson: "../../borders/germanySimplified.geojson",
     link: "https://www.querin.de/",
     description:
-      "Querin GmbH is a German company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Germany.",
+      "Ing.-Buero Querin GmbH - Your professional Partner for technical and nautical Equipment!",
   },
   {
     id: 3,
     name: "DSolution",
     area: "Spain",
     img: "../../images/salesPartners/dSolutionLogo.png",
-    lngLat: [-3.70379, 40.41678], // Not the correct coordinates - The location is in panama. Which will only confuse the user
+    lngLat: [-3.70379, 40.41678], // Not the correct coordinates - The location is in panama. Which will only confuse the user.
     geoJson: "../../borders/spainSimplified.geojson",
-    link: null, // Not the correct link
+    link: null, // Has no website
     description:
-      "DSolution is a Spanish company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Spain.",
+      "DSolution is a Spanish company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry.",
   },
   {
     id: 4,
@@ -46,9 +46,9 @@ const salesPartners = [
     img: "../../images/salesPartners/jnkLogo.png",
     lngLat: [106.89373, -6.15456],
     geoJson: "../../borders/indonesiaSimplified.geojson",
-    link: null, // Not the correct link
+    link: null, // Website does not work
     description:
-      "JNK is an Indonesian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Indonesia.",
+      "JNK is an Indonesian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry.",
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const salesPartners = [
     geoJson: "../../borders/greeceSimplified.geojson",
     link: "https://www.lyssos.com/",
     description:
-      "Lyssos is a Greek company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Greece.",
+      "Lyssos Enterprises has a wide and more than 30 years' accredited experience, in providing versatile solutions to Marine & Offshore, Industrial, Environmental and Defense & Security sectors.",
   },
   {
     id: 6,
@@ -70,7 +70,7 @@ const salesPartners = [
     geoJson: "../../borders/canadaSimplified.geojson",
     link: "https://www.seacoastmarine.ca/",
     description:
-      "Seacoast Marine Electronics is a Canadian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Canada.",
+      "Seacoast is a leading provider of marine satcom, I(o)T solutions, crew safety and Com/nav equipment. We offer a comprehensive range of digital communications tools, and carry the latest equipment from brand name suppliers.",
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ const salesPartners = [
     geoJson: "../../borders/unitedStatesSimplified.geojson",
     link: "https://www.technonaval.com/",
     description:
-      "Technonaval is a USA company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in USA.",
+      "Technonaval is a marine service provider partnering with leading companies providing outstanding technical competent and reliable solutions.",
   },
   {
     id: 8,
@@ -92,6 +92,6 @@ const salesPartners = [
     geoJson: "../../borders/brazilSimplified.geojson",
     link: "https://www.visionmarine.com.br//",
     description:
-      "Vision Marine Technologies is a Brazilian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry. They are a company that is committed to the environment and the development of the maritime sector in Brazil.",
+      "Vision Marine Technologies, Inc. (Nasdaq: VMAR) is leading the innovation of the traditional boating market. Manufactures 100% electric boats producing zero emissions, keeping the natural environment com pletely clean. Producer of world's most powerful electric outboard engine, E-Motion 180E.",
   },
 ];

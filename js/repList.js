@@ -58,7 +58,7 @@ const representatives = [
     name: "Michael Hendricks",
     area: "APAC",
     img: "../../images/representatives/Michael-Hendricks.png",
-    geoJson: "../../borders/APACSimplified.geojson", // Not the coorect file
+    geoJson: "../../borders/APACSimplified.geojson",
     phone: "+47 414 96 500",
     email: "sales@scanreach.com",
     description: "image of Michael Hendricks",
