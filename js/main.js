@@ -27,6 +27,7 @@ window.addEventListener("change", async (e) => {
 const listRadio = document.getElementById("select-list-view");
 const mapRadio = document.getElementById("select-map-view");
 const mapContainer = document.getElementById("map");
+
 listRadio.addEventListener("change", () => {
   if (listRadio.checked) {
     repListContainer.style.display = "flex";
@@ -76,23 +77,6 @@ map.on("load", async () => {
       ],
     },
   });
-  // Add a ScanReach Mint colour around the polygon. Opacity is set to 0.5 until click
-  map.addLayer({
-    id: "country-click-outline",
-    type: "line",
-    source: "country",
-    layout: {},
-    paint: {
-      "line-color": "#28D8C3",
-      "line-width": 2,
-      "line-opacity": [
-        "case",
-        ["boolean", ["feature-state", "click"], false],
-        1,
-        0.3,
-      ],
-    },
-  });
 
   // Add a popup to the map but don't show it yet.
   const partnerPopup = new mapboxgl.Popup();
@@ -101,16 +85,33 @@ map.on("load", async () => {
   circleMarker.className = "scanReachMarker";
   const markerInstance = new mapboxgl.Marker(circleMarker);
 
+  let clickedCountryId = null;
+  let previouslyHoveredCountryId = null;
+  let isCountryClicked = false;
+
   // When the user moves their mouse over the state-fill layer, we'll update the
   // feature state for the feature under the mouse.
   map.on("mouseenter", "country-fills", (e) => {
     map.getCanvas().style.cursor = "pointer";
     if (e.features.length > 0) {
+      if (previouslyHoveredCountryId) {
+        // Check if there is a previously hovered country.
+        map.setFeatureState(
+          { source: "country", id: previouslyHoveredCountryId },
+          { hover: false }
+        );
+      }
       for (const feature of e.features) {
         countryId = feature.id;
         if (countryId !== null) {
           map.setFeatureState(
             { source: "country", id: countryId },
+            { hover: false }
+          );
+        }
+        if (clickedCountryId !== null && countryId !== clickedCountryId) {
+          map.setFeatureState(
+            { source: "country", id: clickedCountryId },
             { hover: false }
           );
         }
@@ -168,6 +169,7 @@ map.on("load", async () => {
           { source: "country", id: countryId },
           { hover: true }
         );
+        previouslyHoveredCountryId = countryId; // Store this as the previously hovered country.
       }
     }
   });
@@ -176,11 +178,7 @@ map.on("load", async () => {
   // previously hovered feature.
   map.on("mouseleave", "country-fills", () => {
     map.getCanvas().style.cursor = "";
-    if (countryId !== null) {
-      map.setFeatureState(
-        { source: "country", id: countryId },
-        { hover: false }
-      );
+    if (countryId !== null && !isCountryClicked) {
       if (getQueryParamData() == "salespartners") {
         partnerPopup.remove();
         markerInstance.remove();
@@ -193,16 +191,13 @@ map.on("load", async () => {
 
   // If the user clicked on one of the state-fill layers, get its information.
   map.on("click", "country-fills", (e) => {
-    const features = map.queryRenderedFeatures(e.point, {
-      layers: ["country-fills"],
-    });
     if (e.features.length > 0) {
       for (const feature of e.features) {
-        countryId = feature.id;
-        if (countryId !== null) {
+        clickedFeatureId = feature.id;
+        if (clickedCountryId !== null) {
           map.setFeatureState(
-            { source: "country", id: countryId },
-            { click: false }
+            { source: "country", id: clickedCountryId },
+            { hover: false }
           );
         }
         if (getQueryParamData() == "salespartners") {
@@ -262,10 +257,12 @@ map.on("load", async () => {
           }
         }
         map.setFeatureState(
-          { source: "country", id: countryId },
-          { click: true }
+          { source: "country", id: clickedFeatureId },
+          { hover: true }
         );
       }
+      clickedCountryId = clickedFeatureId; // Store this as the clicked country.
+      isCountryClicked = true;
     }
   });
 
@@ -275,6 +272,17 @@ map.on("load", async () => {
       layers: ["country-fills"],
     });
     if (!features.length) {
+      // If clicked outside of any country, remove hover state for all countries
+      const allCountries = map.queryRenderedFeatures({
+        layers: ["country-fills"],
+      });
+      allCountries.forEach((feature) => {
+        map.setFeatureState(
+          { source: "country", id: feature.id },
+          { hover: false }
+        );
+      });
+
       if (getQueryParamData() == "salespartners") {
         partnerPopup.remove();
         markerInstance.remove();
@@ -282,13 +290,6 @@ map.on("load", async () => {
         repListPopupContainer.style.display = "none";
       }
       return;
-    }
-    if (countryId !== null) {
-      map.setFeatureState(
-        { source: "country", id: countryId },
-        { click: false }
-      );
-      countryId = null;
     }
   });
 });
