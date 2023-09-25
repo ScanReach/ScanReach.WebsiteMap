@@ -6,8 +6,8 @@ const representatives = [
     id: 1,
     name: "Olivia Eikemo",
     area: "Scandics",
-    img: "./ScanReach.WebsiteMap/images/representatives/Olivia-Eikemo.png",
-    geoJson: "/ScanReach.WebsiteMap/borders/scandicsSimplified.geojson",
+    img: "/ScanReach.WebsiteMap/images/representatives/Olivia-Eikemo.png",
+    geoJson: "/ScanReach.WebsiteMap/borders/scandicsSimplified.geojson", // works
     phone: "+47 414 96 500",
     email: "sales@scanreach.com",
     description: "image of Olivia Eikemo",
@@ -17,7 +17,7 @@ const representatives = [
     name: "Trond Liaboe",
     area: "North America",
     img: "ScanReach.WebsiteMap/images/representatives/Trond-Liaboe.png",
-    geoJson: "ScanReach.WebsiteMap/borders/northAmericaSimplified.geojson",
+    geoJson: "ScanReach.WebsiteMap/borders/northAmericaSimplified.geojson", // Double scanreach.websitemap
     phone: "+47 414 96 500",
     email: "sales@scanreach.com",
     description: "image of Trond Liaboe",
@@ -47,7 +47,7 @@ const representatives = [
     id: 5,
     name: "Sven-Eric Brooks",
     area: "Africa, ROW",
-    img: "ScanReach.WebsiteMap/images/representatives/Sven-Eric-Brooks.png",
+    img: "./../../images/representatives/Sven-Eric-Brooks.png",
     geoJson: "ScanReach.WebsiteMap/borders/africaAndRowSimplified.geojson",
     phone: "+47 414 96 500",
     email: "sales@scanreach.com",
