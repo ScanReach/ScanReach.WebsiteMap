@@ -27,7 +27,7 @@ const representatives = [
     name: "Dan Slater",
     area: "Mediterranean and UK",
     img: "images/representatives/Dan-Slater.png",
-    geoJson: "borders/mediterraneanAndUkSimplified.geojson",
+    geoJson: "borders/mediterraneanAndUKSimplified.geojson",
     phone: "+47 414 96 500",
     email: "sales@scanreach.com",
     description: "image of Dan Slater",
