@@ -90,8 +90,63 @@ const salesPartners = [
     img: "images/salesPartners/visionMarineLogo.png",
     lngLat: [-43.2673, -22.87791],
     geoJson: "borders/brazilSimplified.geojson",
-    link: "https://www.visionmarine.com.br//",
+    link: "https://www.visionmarine.com.br/",
     description:
       "Vision Marine Technologies, Inc. (Nasdaq: VMAR) is leading the innovation of the traditional boating market. Manufactures 100% electric boats producing zero emissions, keeping the natural environment com pletely clean. Producer of world's most powerful electric outboard engine, E-Motion 180E.",
+  },
+  {
+    id: 9,
+    name: "Juptiter Marine",
+    area: "Middle East and India",
+    img: "images/salesPartners/jupiterMarineLogo.png",
+    lngLat: [42.3528328, 25.6242618], // Not the correct location but they are based in Florida USA and their area is Middle East and India which could confuse the user if we use the correct location.
+    geoJson: "borders/middleEastAndIndiaSimplified.geojson",
+    link: "http://jupitermarinegroup.com/",
+    description:
+      "Jupiter Marine International Holdings Inc designs, manufactures and markets sport fishing boats like 29 Forward Seating Center Console, 31 Open Center Console, 31 Cuddy Cabin and 31 Forward Seating Center Console. Geographically the business activities are carried out through Palmetto, Florida.",
+  },
+  {
+    id: 10,
+    name: "MHA Automation",
+    area: "Malaysia",
+    img: "images/salesPartners/mhaAutomationLogo.png",
+    lngLat: [103.86493, 1.47746],
+    geoJson: "borders/malaysiaSimplified.geojson",
+    link: "https://www.mhaautomation.com/",
+    description:
+      "MHA AUTOMATION ENGINEERING SDN BHD. With over 20 years of experience in the industry, MHA Automation Engineering has established a strong reputation for delivering high-quality products and services to clients across a range of industries.",
+  },
+  {
+    id: 11,
+    name: "Marix Kabushiki Kaisha",
+    area: "Japan",
+    img: "images/salesPartners/marixLogo.png",
+    lngLat: [139.75114, 36.66522], // Not sure if location is correct. When searching for the company it shows different locations on different websites.
+    geoJson: "borders/japanSimplified.geojson",
+    link: "https://marix.co.jp/",
+    description:
+      "Marix Kabushiki Kaisha has offered its engineering skill in the field of ship management. Ship building and factory plant operatioin since this company was established by a group of marine engineers in 1980.",
+  },
+  {
+    id: 12,
+    name: "Royal Van der leun",
+    area: "Netherlands",
+    img: "images/salesPartners/royalVanDerLeunLogo.png",
+    lngLat: [4.80017, 51.8257],
+    geoJson: "borders/netherlandsSimplified.geojson",
+    link: "https://www.vanderleun.nl/",
+    description:
+      "Van der Leun works with 230 specialists worldwide on installation projects in the construction, dredging, offshore, and maritime industries. Our specialities are grouped into three divisions: Electrical Marine Systems, Electro Engineering and Metaalbewerking. Each division independently serves its own markets; together, they cooperate to form the strong and multifaceted foundation of Van der Leun. ",
+  },
+  {
+    id: 13,
+    name: "Digital Ocean Technologies",
+    area: "Cyprus",
+    img: "images/salesPartners/digitalOceanTechLogo.png",
+    lngLat: [33.0415, 34.68044],
+    geoJson: "borders/cyprusSimplified.geojson",
+    link: "https://www.digitaloceantech.com/",
+    description:
+      "DOT is a technology company with a broad scope of services, maintenance inspections and sales of NAVCOM equipment. DOT was formed by professionals with extensive experience in the maritime industry and established a worldwide service network in order to provide cost-efficient and quality services to our customers.",
   },
 ];

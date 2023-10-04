@@ -125,14 +125,20 @@ map.on("load", async () => {
               .setLngLat(hoveredPartner.lngLat)
               .setHTML(
                 `
-                <a href="${hoveredPartner.link}">
+                ${
+                  hoveredPartner.link
+                    ? '<a target="_blank" href="' + hoveredPartner.link + '">'
+                    : ""
+                }
                   <div class='popup-sales-partners'>
-                    <img class="popup-img" alt="${hoveredPartner.description}" src="${hoveredPartner.img}"></img>
+                    <img class="popup-img" alt="${
+                      hoveredPartner.description
+                    }" src="${hoveredPartner.img}"></img>
                     <div class="popup-info">
                       <h3 class="area-owner">${hoveredPartner.name}</h3>
                     </div>
                   </div>
-                </a>
+                  ${hoveredPartner.link ? "</a>" : ""}
                 `
               )
               .addTo(map); // Add the popup to the map
