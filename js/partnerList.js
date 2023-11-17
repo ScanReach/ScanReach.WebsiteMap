@@ -96,7 +96,7 @@ const salesPartners = [
   },
   {
     id: 9,
-    name: "Juptiter Marine",
+    name: "Jupiter Marine",
     area: "Middle East and India",
     img: "images/salesPartners/jupiterMarineLogo.png",
     lngLat: [42.3528328, 25.6242618], // Not the correct location but they are based in Florida USA and their area is Middle East and India which could confuse the user if we use the correct location.
