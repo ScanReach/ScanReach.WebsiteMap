@@ -1,14 +1,10 @@
 /* General styling */
-@font-face {
-  font-family: CenturyGothic;
-  src: url(CenturyGothic.ttf);
-}
 body {
-  font-family: CenturyGothic, sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
-  background-color: #f4fcfb;
+  background-color: #131c20;
   height: 100%;
 }
 a {
@@ -44,7 +40,7 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-family: CenturyGothic, sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 5px;
   height: 100px;
   width: 300px;
@@ -125,7 +121,7 @@ a {
 }
 
 .resposibility-area {
-  font-family: CenturyGothic, sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   color: #28d8c3;
 }
@@ -134,7 +130,7 @@ a {
   margin: 5px 0px 10px 0px;
   padding: 0;
   font-size: 1.5rem;
-  font-family: CenturyGothic, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .popup-contact-info {
@@ -147,7 +143,7 @@ a {
   cursor: pointer;
   margin: 0px;
   padding: 5px 5px 5px 0px;
-  font-family: CenturyGothic, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .popup-contact-info p {
@@ -221,6 +217,7 @@ a {
   justify-content: center;
   width: 100%;
   margin: 20px 0px 20px 0px;
+  color: #f4fcfb;
 }
 .select-view-label {
   cursor: pointer;
