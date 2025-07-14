@@ -19,17 +19,6 @@ const salesPartners = [
   },
   {
     id: 2,
-    name: "Querin",
-    area: "Germany",
-    img: "images/salesPartners/querinLogo.png",
-    lngLat: [9.54435, 53.53786],
-    geoJson: "borders/germanySimplified.geojson",
-    link: "https://www.querin.de/",
-    description:
-      "Ing.-Buero Querin GmbH - Your professional Partner for technical and nautical Equipment!",
-  },
-  {
-    id: 3,
     name: "DSolution",
     area: "Spain",
     img: "images/salesPartners/dSolutionLogo.png",
@@ -40,7 +29,7 @@ const salesPartners = [
       "DSolution is a Spanish company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry.",
   },
   {
-    id: 4,
+    id: 3,
     name: "JNK",
     area: "Indonesia",
     img: "images/salesPartners/jnkLogo.png",
@@ -51,18 +40,7 @@ const salesPartners = [
       "JNK is an Indonesian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry.",
   },
   {
-    id: 5,
-    name: "Lyssos",
-    area: "Greece",
-    img: "images/salesPartners/lyssosLogo.png",
-    lngLat: [23.63549, 37.93688],
-    geoJson: "borders/greeceSimplified.geojson",
-    link: "https://www.lyssos.com/",
-    description:
-      "Lyssos Enterprises has a wide and more than 30 years' accredited experience, in providing versatile solutions to Marine & Offshore, Industrial, Environmental and Defense & Security sectors.",
-  },
-  {
-    id: 6,
+    id: 4,
     name: "Seacoast Marine Electronics",
     area: "Canada",
     img: "images/salesPartners/seacoastMarineLogo.png",
@@ -73,7 +51,7 @@ const salesPartners = [
       "Seacoast is a leading provider of marine satcom, I(o)T solutions, crew safety and Com/nav equipment. We offer a comprehensive range of digital communications tools, and carry the latest equipment from brand name suppliers.",
   },
   {
-    id: 7,
+    id: 5,
     name: "Technonaval",
     area: "USA",
     img: "images/salesPartners/technonavalLogo.png",
@@ -84,7 +62,7 @@ const salesPartners = [
       "Technonaval is a marine service provider partnering with leading companies providing outstanding technical competent and reliable solutions.",
   },
   {
-    id: 8,
+    id: 6,
     name: "Vision Marine Technologies",
     area: "Brazil",
     img: "images/salesPartners/visionMarineLogo.png",
@@ -95,7 +73,7 @@ const salesPartners = [
       "Vision Marine Technologies, Inc. (Nasdaq: VMAR) is leading the innovation of the traditional boating market. Manufactures 100% electric boats producing zero emissions, keeping the natural environment com pletely clean. Producer of world's most powerful electric outboard engine, E-Motion 180E.",
   },
   {
-    id: 9,
+    id: 7,
     name: "Jupiter Marine",
     area: "Middle East and India",
     img: "images/salesPartners/jupiterMarineLogo.png",
@@ -106,7 +84,7 @@ const salesPartners = [
       "Jupiter Marine International Holdings Inc designs, manufactures and markets sport fishing boats like 29 Forward Seating Center Console, 31 Open Center Console, 31 Cuddy Cabin and 31 Forward Seating Center Console. Geographically the business activities are carried out through Palmetto, Florida.",
   },
   {
-    id: 10,
+    id: 8,
     name: "MHA Automation",
     area: "Malaysia",
     img: "images/salesPartners/mhaAutomationLogo.png",
@@ -117,7 +95,7 @@ const salesPartners = [
       "MHA AUTOMATION ENGINEERING SDN BHD. With over 20 years of experience in the industry, MHA Automation Engineering has established a strong reputation for delivering high-quality products and services to clients across a range of industries.",
   },
   {
-    id: 11,
+    id: 9,
     name: "Marix Kabushiki Kaisha",
     area: "Japan",
     img: "images/salesPartners/marixLogo.png",
@@ -128,7 +106,7 @@ const salesPartners = [
       "Marix Kabushiki Kaisha has offered its engineering skill in the field of ship management. Ship building and factory plant operatioin since this company was established by a group of marine engineers in 1980.",
   },
   {
-    id: 12,
+    id: 10,
     name: "Royal Van der leun",
     area: "Netherlands",
     img: "images/salesPartners/royalVanDerLeunLogo.png",
@@ -137,16 +115,5 @@ const salesPartners = [
     link: "https://www.vanderleun.nl/",
     description:
       "Van der Leun works with 230 specialists worldwide on installation projects in the construction, dredging, offshore, and maritime industries. Our specialities are grouped into three divisions: Electrical Marine Systems, Electro Engineering and Metaalbewerking. Each division independently serves its own markets; together, they cooperate to form the strong and multifaceted foundation of Van der Leun. ",
-  },
-  {
-    id: 13,
-    name: "Digital Ocean Technologies",
-    area: "Cyprus",
-    img: "images/salesPartners/digitalOceanTechLogo.png",
-    lngLat: [33.0415, 34.68044],
-    geoJson: "borders/cyprusSimplified.geojson",
-    link: "https://www.digitaloceantech.com/",
-    description:
-      "DOT is a technology company with a broad scope of services, maintenance inspections and sales of NAVCOM equipment. DOT was formed by professionals with extensive experience in the maritime industry and established a worldwide service network in order to provide cost-efficient and quality services to our customers.",
   },
 ];
