@@ -10,7 +10,7 @@ const salesPartners = [
     id: 1,
     name: "AST Networks",
     area: "Global",
-    img: "images/salesPartners/astNetworks.png",
+    img: "images/salesPartners/astNetworks_logo.png",
     lngLat: [],
     geoJson: "",
     link: "https://ast-networks.com/",

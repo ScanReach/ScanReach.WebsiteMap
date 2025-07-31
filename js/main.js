@@ -343,12 +343,27 @@ async function renderRepresentativePolygons(representatives, mapboxMap) {
     features: [],
   };
   for (const rep of representatives) {
-    const response = await fetch(rep.geoJson);
-    const repGeoJson = await response.json();
-    repGeoJson.features.forEach((feature) => {
-      feature.id = rep.id; // set the ID to the rep id
-    });
-    combinedGeoJson.features.push(...repGeoJson.features);
+    // Skip entries without geoJson data (like global partners)
+    if (!rep.geoJson || rep.geoJson.trim() === "") {
+      continue;
+    }
+
+    try {
+      const response = await fetch(rep.geoJson);
+      if (!response.ok) {
+        console.warn(
+          `Failed to fetch GeoJSON for ${rep.name}: ${response.status}`
+        );
+        continue;
+      }
+      const repGeoJson = await response.json();
+      repGeoJson.features.forEach((feature) => {
+        feature.id = rep.id; // set the ID to the rep id
+      });
+      combinedGeoJson.features.push(...repGeoJson.features);
+    } catch (error) {
+      console.warn(`Error loading GeoJSON for ${rep.name}:`, error);
+    }
   }
   let polygonSource = mapboxMap.getSource("country");
   if (!polygonSource) {
