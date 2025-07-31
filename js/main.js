@@ -60,7 +60,7 @@ map.on("load", async () => {
       "fill-color": "transparent",
     },
   });
-  // Add a ScanReach Mint colour around the polygon. Opacity is set to 0.5 until hover
+  // Add a ScanReach Mint color around the polygon. Opacity is set to 0.5 until hover
   map.addLayer({
     id: "country-hover-outline",
     type: "line",
@@ -79,7 +79,10 @@ map.on("load", async () => {
   });
 
   // Add a popup to the map but don't show it yet.
-  const partnerPopup = new mapboxgl.Popup();
+  const partnerPopup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
   // Create a marker.
   const circleMarker = document.createElement("div");
   circleMarker.className = "scanReachMarker";
@@ -88,6 +91,24 @@ map.on("load", async () => {
   let clickedCountryId = null;
   let previouslyHoveredCountryId = null;
   let isCountryClicked = false;
+  let isHoveringOverPopup = false;
+
+  // Add event listeners to prevent popup from disappearing when hovering over it
+  repListPopupContainer.addEventListener("mouseenter", () => {
+    isHoveringOverPopup = true;
+  });
+
+  repListPopupContainer.addEventListener("mouseleave", () => {
+    isHoveringOverPopup = false;
+    // Hide popup when leaving it if no country is clicked
+    if (!isCountryClicked) {
+      setTimeout(() => {
+        if (!isHoveringOverPopup) {
+          repListPopupContainer.style.display = "none";
+        }
+      }, 100);
+    }
+  });
 
   // When the user moves their mouse over the state-fill layer, we'll update the
   // feature state for the feature under the mouse.
@@ -142,6 +163,19 @@ map.on("load", async () => {
                 `
               )
               .addTo(map); // Add the popup to the map
+
+            // Add event listeners to the popup after it's added
+            setTimeout(() => {
+              const popupElement = document.querySelector(".mapboxgl-popup");
+              if (popupElement) {
+                popupElement.addEventListener("mouseenter", () => {
+                  isHoveringOverPopup = true;
+                });
+                popupElement.addEventListener("mouseleave", () => {
+                  isHoveringOverPopup = false;
+                });
+              }
+            }, 10);
           }
         } else {
           const hoveredRep = representatives.find(
@@ -182,17 +216,21 @@ map.on("load", async () => {
 
   // When the mouse leaves the state-fill layer, update the feature state of the
   // previously hovered feature.
-  map.on("mouseleave", "country-fills", () => {
+  map.on("mouseleave", "country-fills", (e) => {
     map.getCanvas().style.cursor = "";
-    if (countryId !== null && !isCountryClicked) {
-      if (getQueryParamData() == "salespartners") {
-        partnerPopup.remove();
-        markerInstance.remove();
-      } else {
-        repListPopupContainer.style.display = "none";
+
+    // Add a small delay to allow mouse to move to popup
+    setTimeout(() => {
+      if (countryId !== null && !isCountryClicked && !isHoveringOverPopup) {
+        if (getQueryParamData() == "salespartners") {
+          partnerPopup.remove();
+          markerInstance.remove();
+        } else {
+          repListPopupContainer.style.display = "none";
+        }
       }
-    }
-    countryId = null;
+      countryId = null;
+    }, 100);
   });
 
   // If the user clicked on one of the state-fill layers, get its information.
@@ -233,6 +271,19 @@ map.on("load", async () => {
                   `
               )
               .addTo(map); // Add the popup to the map
+
+            // Add event listeners to the popup after it's added
+            setTimeout(() => {
+              const popupElement = document.querySelector(".mapboxgl-popup");
+              if (popupElement) {
+                popupElement.addEventListener("mouseenter", () => {
+                  isHoveringOverPopup = true;
+                });
+                popupElement.addEventListener("mouseleave", () => {
+                  isHoveringOverPopup = false;
+                });
+              }
+            }, 10);
           }
         } else {
           const clickedRep = representatives.find(
