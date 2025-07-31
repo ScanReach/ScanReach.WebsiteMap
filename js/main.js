@@ -119,7 +119,7 @@ map.on("load", async () => {
           const hoveredPartner = salesPartners.find(
             (partner) => partner.id === countryId
           );
-          if (hoveredPartner) {
+          if (hoveredPartner && hoveredPartner.lngLat) {
             markerInstance.setLngLat(hoveredPartner.lngLat).addTo(map); // Add the marker to the map
             partnerPopup
               .setLngLat(hoveredPartner.lngLat)
