@@ -10,7 +10,7 @@ var map = new mapboxgl.Map({
 });
 window.map = map; // For easier debugging
 
-let repListContainer = document.getElementById("list-container");
+// let repListContainer = document.getElementById("list-container");
 let repListPopupContainer = document.getElementById(
   "representatives-popup-container"
 );
@@ -24,28 +24,32 @@ window.addEventListener("change", async (e) => {
   await getQueryParamAndRender();
 });
 
-const listRadio = document.getElementById("select-list-view");
-const mapRadio = document.getElementById("select-map-view");
+// Uncomment the following lines if you want to use radio buttons to switch between list and map view
+// This is currently not used in the UI, but can be useful for future development.
+// If you want to use it, make sure to uncomment the HTML elements with IDs "select-list-view" and "select-map-view" in your HTML file.
+
+// const listRadio = document.getElementById("select-list-view");
+// const mapRadio = document.getElementById("select-map-view");
 const mapContainer = document.getElementById("map");
 
-listRadio.addEventListener("change", () => {
-  if (listRadio.checked) {
-    repListContainer.style.display = "flex";
-    mapContainer.style.display = "none";
-    if (getQueryParamData() == "salespartners") {
-      repListContainer.innerHTML = renderSalesPartnerList(salesPartners);
-    } else {
-      repListContainer.innerHTML = renderRepresentativesList(representatives);
-    }
-  }
-});
+// listRadio.addEventListener("change", () => {
+//   if (listRadio.checked) {
+//     repListContainer.style.display = "flex";
+//     mapContainer.style.display = "none";
+//     if (getQueryParamData() == "salespartners") {
+//       repListContainer.innerHTML = renderSalesPartnerList(salesPartners);
+//     } else {
+//       repListContainer.innerHTML = renderRepresentativesList(representatives);
+//     }
+//   }
+// });
 
-mapRadio.addEventListener("change", () => {
-  if (mapRadio.checked) {
-    repListContainer.style.display = "none";
-    mapContainer.style.display = "block";
-  }
-});
+// mapRadio.addEventListener("change", () => {
+//   if (mapRadio.checked) {
+//     repListContainer.style.display = "none";
+//     mapContainer.style.display = "block";
+//   }
+// });
 
 // load layers and render sales reps
 map.on("load", async () => {
