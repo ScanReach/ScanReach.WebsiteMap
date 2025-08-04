@@ -9,10 +9,10 @@ const salesPartners = [
   {
     id: 1,
     name: "AST Networks",
-    area: "Global",
+    area: "United Kingdom",
     img: "images/salesPartners/astNetworks_logo.png",
-    lngLat: [],
-    geoJson: "",
+    lngLat: [1.713649, 52.592578],
+    geoJson: "borders/ukSimplified.geojson",
     link: "https://ast-networks.com/",
     description:
       "AST Networks is an independent full-service communications integrator providing the maritime, energy and government sectors with reliable hybrid end-to-end remote connectivity solutions",

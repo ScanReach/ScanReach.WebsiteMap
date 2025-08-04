@@ -13,6 +13,20 @@ When showing the representatives part of the map, hovering over, or clicking an 
 
 A user can choose list instead, this is especially useful on screen sizes smaller then 768px. The list will show all partners or representatives and the area that is their responsibility.
 
+## How to create new geoJson borders
+
+- Open Overpass Turbo
+- Use ChatGPT to create a query for the getting the needed borders
+- Click RUN
+- Verify that correct Borders are marked
+- Click Export and copy GeoJson
+- Create a file with the name of the country(ies) the border includes
+- Install mapshaper `npm install -g mapshaper`
+- Run this command `mapshaper borders/your-file.geojson -simplify 5% -o format=geojson borders/your-desired-filename-simplified.geojson`
+- Verify the border by running the application with liveserver
+- Add the partner or representative to the Js file
+- For SalesPartners add lngLat for their HQ
+
 ## Screenshots of how the map and list looks dependant on what query is chosen
 
 Salespartners map on desktop
