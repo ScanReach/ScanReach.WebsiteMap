@@ -30,25 +30,23 @@ const salesPartners = [
   },
   {
     id: 3,
-    name: "DSolution",
-    area: "Spain",
-    img: "images/salesPartners/dSolutionLogo.png",
-    lngLat: [-3.70379, 40.41678], // Not the correct coordinates - The location is in panama. Which will only confuse the user.
-    geoJson: "borders/spainSimplified.geojson",
-    link: null, // Has no website
-    description:
-      "DSolution is a Spanish company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry.",
+    name: "Belga Marine",
+    area: "Brazil",
+    img: "images/salesPartners/belgaMarineLogo.png",
+    lngLat: [-43.17857571803931, -22.902000349725547], // Not the correct coordinates - The location is in panama. Which will only confuse the user.
+    geoJson: "borders/brazilSimplified.geojson",
+    link: "https://belgamarine.com.br/", // Has no website
+    description: "",
   },
   {
     id: 4,
-    name: "JNK",
-    area: "Indonesia",
-    img: "images/salesPartners/jnkLogo.png",
-    lngLat: [106.89373, -6.15456],
-    geoJson: "borders/indonesiaSimplified.geojson",
+    name: "Essem",
+    area: "Malaysia",
+    img: "images/salesPartners/essemLogo.png",
+    lngLat: [101.75255106814066, 3.2093204408940617],
+    geoJson: "borders/malaysiaSimplified.geojson",
     link: null, // Website does not work
-    description:
-      "JNK is an Indonesian company that provides services in the maritime sector, with a focus on the commercialization of products and services for the maritime industry.",
+    description: "",
   },
   {
     id: 5,
@@ -118,13 +116,12 @@ const salesPartners = [
   },
   {
     id: 11,
-    name: "Vision Marine Technologies",
-    area: "Brazil",
-    img: "images/salesPartners/visionMarineLogo.png",
-    lngLat: [-43.2673, -22.87791],
-    geoJson: "borders/brazilSimplified.geojson",
-    link: "https://www.visionmarine.com.br/",
-    description:
-      "Vision Marine Technologies, Inc. (Nasdaq: VMAR) is leading the innovation of the traditional boating market. Manufactures 100% electric boats producing zero emissions, keeping the natural environment com pletely clean. Producer of world's most powerful electric outboard engine, E-Motion 180E.",
+    name: "Limbus Maritime",
+    area: "United Kingdom",
+    img: "",
+    lngLat: [-0.1276, 51.5074],
+    geoJson: "borders/unitedKingdomSimplified.geojson",
+    link: "",
+    description: "",
   },
 ];
